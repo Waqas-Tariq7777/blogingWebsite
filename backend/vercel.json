@@ -12,5 +12,8 @@
    "src": "/(.*)",
    "dest": "backend/src/index.js"
   }
- ]
+ ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
