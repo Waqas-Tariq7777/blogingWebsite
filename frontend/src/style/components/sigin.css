@@ -1,0 +1,119 @@
+.sigin-main {
+    display: flex;
+    color: white;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 100px;
+    align-items: center;
+}
+
+.sigin-main-right {
+    width: 70%;
+}
+
+.login-form .form-control {
+    width: 60%;
+}
+
+.login-form button {
+    width: 60%;
+}
+
+.signin-form-button {
+    background: linear-gradient(90deg,
+            rgba(128, 0, 128, 0.8),
+            /* purple */
+            rgba(255, 105, 180, 0.8),
+            /* pink */
+            rgba(0, 0, 255, 0.8)
+            /* blue */
+        );
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.4s ease;
+}
+
+.signin-form-button {
+    background: linear-gradient(90deg,
+            rgba(186, 85, 211, 0.9),
+            /* light purple */
+            rgba(255, 182, 193, 0.9),
+            /* light pink */
+            rgba(135, 206, 250, 0.9)
+            /* light blue */
+        )
+}
+
+.signin-form-google {
+    background-color: transparent;
+    margin-top: 20px;
+    border: 2px solid teal;
+}
+
+.signin-form-google:hover {
+    background-color: teal;
+}
+
+@media screen and (max-width:768px) {
+    .sigin-main {
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .sigin-main-right {
+        width: 100%;
+    }
+
+    .login-form .form-control {
+        width: 100%;
+    }
+
+    .login-form button {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 900px) {
+    .sigin-main {
+        justify-content: space-around;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .sigin-main-right {
+        width: 50%;
+    }
+
+    .login-form .form-control {
+        width: 100%;
+    }
+
+    .login-form button {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:900px) and (max-width: 1200px) {
+    .sigin-main {
+        justify-content: space-between;
+        gap: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .sigin-main-right {
+        width: 50%;
+    }
+
+    .login-form .form-control {
+        width: 100%;
+    }
+
+    .login-form button {
+        width: 100%;
+    }
+}

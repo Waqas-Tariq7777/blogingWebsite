@@ -1,0 +1,24 @@
+
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 5px 10px 5px;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.8;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.sidebar-item:hover {
+  background: #364355;
+  border-radius: 5px;
+  opacity: 1;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar-icon {
+  font-size: 1.25rem;
+}

@@ -1,0 +1,10 @@
+.error-card {
+  background: #ffe6e6;       /* light red background */
+  color: #b30000;            /* dark red text */
+  padding: 15px 20px;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  margin: 10px 0;
+}

@@ -1,0 +1,37 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;      /* allow to grow beyond 100vh if content taller */
+}
+
+.sidemun-dash {
+  flex-shrink: 0;         /* keep sidebar fixed width */
+}
+
+.profile-dash {
+  flex: 1;
+  padding: 2rem;
+}
+
+.app-footer {
+  margin-top:-100px !important;        /* remove space above */
+}
+.profile-dash{
+    width: 80%;
+}
+
+@media screen and (max-width:768px){
+
+    .dashboard{
+        display: block;
+    }
+    .profile-dash{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:1200px){
+  .profile-dash{
+        width: 100%;
+    }
+   
+}
