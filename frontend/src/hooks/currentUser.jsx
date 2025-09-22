@@ -5,17 +5,10 @@ import axios from "axios";
 export default function useCurrentUser() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // src/hooks/useCurrentUser.js
-const API_BASE =
-  import.meta.env.VITE_API_URL ||
-  (import.meta.env.DEV
-    ? "http://localhost:3000"
-    : "https://bloging-website-backend-seven.vercel.app");
-
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`${API_BASE}/api/user/me`, {
+        const res = await axios.get("http://localhost:3000/api/user/me", {
           withCredentials: true,
         });
         setUser(res.data);   // <-- depends on what /me returns (object or data.user)
