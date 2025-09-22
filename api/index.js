@@ -1,11 +1,10 @@
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 import serverless from "serverless-http";
-import { app } from "./app.js";
+import app from "./app.js";   // <-- default import
 
 dotenv.config({ path: "./.env" });
 
-// connect to DB (optional: wrap in try/catch)
 await connectDB();
 
-export default serverless(app); 
+export default serverless(app);   // <-- default export must be a function
