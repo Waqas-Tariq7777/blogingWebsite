@@ -17,7 +17,13 @@ export default function SignIn() {
   const [password, setPassword] = useState()
   const navigate = useNavigate()
 
-  const API_BASE = import.meta.env.VITE_API_URL || "https://bloging-website-backend-seven.vercel.app";
+ // src/hooks/useCurrentUser.js
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV
+    ? "http://localhost:3000"
+    : "https://bloging-website-backend-seven.vercel.app");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 

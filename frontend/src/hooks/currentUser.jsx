@@ -5,7 +5,13 @@ import axios from "axios";
 export default function useCurrentUser() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-   const API_BASE = import.meta.env.VITE_API_URL || "https://bloging-website-backend-seven.vercel.app";
+  // src/hooks/useCurrentUser.js
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV
+    ? "http://localhost:3000"
+    : "https://bloging-website-backend-seven.vercel.app");
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
