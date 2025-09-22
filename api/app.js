@@ -34,11 +34,6 @@ app.use("/api/admin", adminRoutes)
 app.use("/api/comment", commentRoutes)
 app.use(testRouter)
 
-app.use(express.static(path.join(__dirname, '/frontend/dist')));
-
-app.get('*', (req, res)=>{
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
-})
 app.use((err, req, res, next) => {
   console.error(err.stack)
   if (err instanceof ApiError) {

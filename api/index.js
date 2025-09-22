@@ -1,18 +1,11 @@
-import { app } from "./app.js";
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
-import path from "path";
+import serverless from "serverless-http";
+import { app } from "./app.js";
 
-dotenv.config({ path: "./.env"})
-const port = process.env.PORT || 4000
-connectDB()
-.then(()=>{
-app.listen(port, (req, res)=>{
-    console.log("App is Successfully listening on Port:", port)
-})
-})
-.catch((error)=>{
-    console.log("MONGODB Connection Error:", error)
-})
+dotenv.config({ path: "./.env" });
 
-const __dirname = path.resolve();
+// connect to DB (optional: wrap in try/catch)
+await connectDB();
+
+export const handler = serverless(app);
