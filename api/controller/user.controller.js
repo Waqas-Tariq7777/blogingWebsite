@@ -114,7 +114,9 @@ const google = asyncHandler(async (req, res) => {
 
   const options = {
     httpOnly: true,
-    secure: true
+    secure: true,
+    sameSite: "None",   // <-- allow cross-site
+    path: "/",          // <-- good practice
   };
 
   return res
@@ -204,7 +206,9 @@ const deleteUser = asyncHandler(async (req, res) => {
 const logoutUser = asyncHandler(async (req, res) => {
   const options = {
     httpOnly: true,
-    secure: true
+    secure: true,
+    sameSite: "None",   // <-- allow cross-site
+    path: "/",          // <-- good practice
   }
 
   return res.status(200).clearCookie("accessToken", options).json(new ApiResponse(200, 'Logout successfully'))
