@@ -1,16 +1,10 @@
 import { app } from "./app.js";
-import dotenv from "dotenv";
 import connectDB from "./db/index.js";
+import dotenv from "dotenv";
 
-dotenv.config({ path: "./.env"})
-const port = process.env.PORT || 4000
-connectDB()
-.then(()=>{
-app.listen(port, (req, res)=>{
-    console.log("App is Successfully listening on Port:", port)
-})
-})
-.catch((error)=>{
-    console.log("MONGODB Connection Error:", error)
-})
+dotenv.config({ path: "./.env" });
 
+await connectDB();
+
+// ✅ export the express app as default so Vercel can invoke it
+export default app;
