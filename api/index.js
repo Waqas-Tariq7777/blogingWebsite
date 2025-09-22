@@ -1,6 +1,7 @@
 import { app } from "./app.js";
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
+import path from "path";
 
 dotenv.config({ path: "./.env"})
 const port = process.env.PORT || 4000
@@ -14,3 +15,4 @@ app.listen(port, (req, res)=>{
     console.log("MONGODB Connection Error:", error)
 })
 
+const __dirname = path.resolve();
