@@ -11,7 +11,7 @@ export default function useCurrentUser() {
         const res = await axios.get( "https://bloging-website-backend-xi.vercel.app/api/user/me", {
           withCredentials: true,
         });
-        setUser(res.data);   // <-- depends on what /me returns (object or data.user)
+        setUser(res.data);   
         
       } catch {
         setUser(null);
