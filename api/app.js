@@ -9,21 +9,22 @@ import testRouter from "./routes/test.routes.js";
 
 const app = express();
 
-const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(",") || [];
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(",").map(o => o.replace(/\/$/, "")) || [];
 
 app.use(
   cors({
-    origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
+    origin(origin, cb) {
+      if (!origin || allowedOrigins.includes(origin.replace(/\/$/, ""))) {
+        cb(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"));
+        cb(new Error("Not allowed by CORS"));
       }
     },
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
+
 
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
