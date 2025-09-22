@@ -5,6 +5,7 @@ import userRoutes from "./routes/user.routes.js"
 import { ApiError } from "./utils/ApiError.js";
 import adminRoutes from "./routes/admin.routes.js"
 import commentRoutes from "./routes/comment.routes.js"
+import testRouter from "./routes/test.routes.js";
 const app = express();
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",");
@@ -32,6 +33,8 @@ app.use(cookieParser());
 app.use("/api/user", userRoutes)
 app.use("/api/admin", adminRoutes)
 app.use("/api/comment", commentRoutes)
+app.use(testRouter)
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack)
