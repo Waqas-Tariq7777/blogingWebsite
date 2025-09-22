@@ -17,7 +17,7 @@ export default function SignIn() {
   const [password, setPassword] = useState()
   const navigate = useNavigate()
 
-
+  const API_BASE = import.meta.env.VITE_API_URL || "https://bloging-website-backend-seven.vercel.app";
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -29,7 +29,7 @@ export default function SignIn() {
       setLoading(true)
       setErrorMessage(null)
       const result = await axios.post(
-        "http://localhost:3000/api/user/signin",
+        `${API_BASE}/api/user/signin`,
         { email, password },
         { withCredentials: true }
       );
