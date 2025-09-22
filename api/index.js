@@ -8,4 +8,4 @@ dotenv.config({ path: "./.env" });
 // connect to DB (optional: wrap in try/catch)
 await connectDB();
 
-export default handler = serverless(app);
+export default serverless(app); 
