@@ -8,7 +8,7 @@ export default function useCurrentUser() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/user/me", {
+        const res = await axios.get("https://bloging-website-backend-mauve.vercel.app/api/user/me", {
           withCredentials: true,
         });
         setUser(res.data);   // <-- depends on what /me returns (object or data.user)
