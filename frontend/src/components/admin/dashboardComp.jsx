@@ -38,9 +38,9 @@ export default function DashboardComp() {
 
   useEffect(() => {
     if (user?.isAdmin) {
-      fetchData("http://localhost:3000/api/admin/getUsers?limit=5", setUsers, setTotalUsers, setLastUsers);
-      fetchData("http://localhost:3000/api/admin/getPost?limit=5", setPosts, setTotalPosts, setLastPosts);
-      fetchData("http://localhost:3000/api/comment/getComments?limit=5", setComments, setTotalComments, setLastComments);
+      fetchData("https://bloging-website-backend-xi.vercel.app/api/admin/getUsers?limit=5", setUsers, setTotalUsers, setLastUsers);
+      fetchData("https://bloging-website-backend-xi.vercel.app/api/admin/getPost?limit=5", setPosts, setTotalPosts, setLastPosts);
+      fetchData("https://bloging-website-backend-xi.vercel.app/api/comment/getComments?limit=5", setComments, setTotalComments, setLastComments);
     }
   }, [user]);
 

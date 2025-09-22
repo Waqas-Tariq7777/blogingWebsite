@@ -31,7 +31,7 @@ export default function SignUp() {
       setLoading(true)
       setErrorMessage(null)
       const result = await axios.post(
-        "http://localhost:3000/api/user/register",
+        "https://bloging-website-backend-xi.vercel.app/api/user/register",
         { userName, email, password }
       );
       setLoading(false)

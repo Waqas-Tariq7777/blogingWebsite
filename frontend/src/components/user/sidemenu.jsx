@@ -10,7 +10,7 @@ export default function SideMenu() {
    const handleSubmit = async () => {
         try {
             await axios.post(
-                "http://localhost:3000/api/user/logout",
+                "https://bloging-website-backend-xi.vercel.app/api/user/logout",
                 {},
                 {
                     withCredentials: true,

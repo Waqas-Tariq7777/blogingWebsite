@@ -18,7 +18,7 @@ export default function UsersDisplay() {
     const fetchUsers = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/admin/getUsers`,
+          `https://bloging-website-backend-xi.vercel.app/api/admin/getUsers`,
           { withCredentials: true }
         );
         console.log("Users API response:", res.data);
@@ -41,7 +41,7 @@ export default function UsersDisplay() {
     setLoadingMore(true);
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/admin/getUsers?startIndex=${startIndex}`,
+        `https://bloging-website-backend-xi.vercel.app/api/admin/getUsers?startIndex=${startIndex}`,
         { withCredentials: true }
       );
       const newUsers = Array.isArray(res.data.data) ? res.data.data : [];
@@ -60,7 +60,7 @@ const handleDelete = async (userId) => {
 
   try {
     await axios.delete(
-      `http://localhost:3000/api/admin/deleteUsers/${userId}`,
+      `https://bloging-website-backend-xi.vercel.app/api/admin/deleteUsers/${userId}`,
       { withCredentials: true }
     );
 

@@ -16,7 +16,7 @@ export default function PostPage() {
         const fetchPost = async () => {
             try {
                 const result = await axios.get(
-                    `http://localhost:3000/api/admin/getPost?slug=${postSlug}`,
+                    `https://bloging-website-backend-xi.vercel.app/api/admin/getPost?slug=${postSlug}`,
                     { withCredentials: true }
                 );
 
@@ -41,7 +41,7 @@ useEffect(() => {
   const fetchRecentPosts = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/admin/getPost?limit=3`,
+        `https://bloging-website-backend-xi.vercel.app/api/admin/getPost?limit=3`,
         { withCredentials: true }
       );
       if (res.status === 200 && Array.isArray(res.data.data)) {

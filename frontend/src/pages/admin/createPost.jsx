@@ -39,7 +39,7 @@ export default function CreatePost() {
     setErrorMessage("");
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/admin/createPost",
+        "https://bloging-website-backend-xi.vercel.app/api/admin/createPost",
         formData,
         {
           withCredentials: true,

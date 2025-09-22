@@ -14,7 +14,7 @@ export default function OAuth() {
 
   try {
     const resultsFromGoogle = await signInWithPopup(auth, provider)
-    const result = await axios.post("http://localhost:3000/api/user/google" , {
+    const result = await axios.post("https://bloging-website-backend-xi.vercel.app/api/user/google" , {
       name:resultsFromGoogle.user.displayName,
       email:resultsFromGoogle.user.email,
       googlePhotoUrl:resultsFromGoogle.user.photoURL

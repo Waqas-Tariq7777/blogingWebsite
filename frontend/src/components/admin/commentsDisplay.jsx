@@ -18,7 +18,7 @@ export default function CommentsDisplay() {
     const fetchComments = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/comment/getComments`,
+          `https://bloging-website-backend-xi.vercel.app/api/comment/getComments`,
           { withCredentials: true }
         );
         const fetched = Array.isArray(res.data.data) ? res.data.data : [];
@@ -42,7 +42,7 @@ export default function CommentsDisplay() {
     setLoadingMore(true);
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/comment/getComments?startIndex=${startIndex}`,
+        `https://bloging-website-backend-xi.vercel.app/api/comment/getComments?startIndex=${startIndex}`,
         { withCredentials: true }
       );
       const newComments = Array.isArray(res.data.data) ? res.data.data : [];
@@ -60,7 +60,7 @@ export default function CommentsDisplay() {
     if (!window.confirm("Are you sure you want to delete this Comment?")) return;
     try {
       await axios.delete(
-        `http://localhost:3000/api/comment/deleteComment/${commentId}`,
+        `https://bloging-website-backend-xi.vercel.app/api/comment/deleteComment/${commentId}`,
         { withCredentials: true }
       );
       setComments((prev) => prev.filter((c) => c._id !== commentId));

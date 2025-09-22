@@ -16,7 +16,7 @@ export default function Post() {
     const fetchPosts = async () => {
       try {
         const result = await axios.get(
-          `http://localhost:3000/api/admin/getPost?userId=${user?.id}`,
+          `https://bloging-website-backend-xi.vercel.app/api/admin/getPost?userId=${user?.id}`,
           { withCredentials: true }
         );
 
@@ -41,7 +41,7 @@ export default function Post() {
     setLoadingMore(true);
     try {
       const result = await axios.get(
-        `http://localhost:3000/api/admin/getPost?userId=${user?.id}&startIndex=${startIndex}`,
+        `https://bloging-website-backend-xi.vercel.app/api/admin/getPost?userId=${user?.id}&startIndex=${startIndex}`,
         { withCredentials: true }
       );
       const newPosts = Array.isArray(result.data.data)
@@ -61,7 +61,7 @@ export default function Post() {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
     try {
       await axios.delete(
-        `http://localhost:3000/api/admin/deletePost/${postId}/${user?.id}`,
+        `https://bloging-website-backend-xi.vercel.app/api/admin/deletePost/${postId}/${user?.id}`,
         { withCredentials: true }
       );
       setPost((prev) => prev.filter((p) => p._id !== postId));

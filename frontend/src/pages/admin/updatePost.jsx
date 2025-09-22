@@ -28,7 +28,7 @@ export default function UpdatePost() {
     const fetchPost = async () => {
       setFetching(true);
       try {
-        const res = await axios.get("http://localhost:3000/api/admin/getPost", {
+        const res = await axios.get("https://bloging-website-backend-xi.vercel.app/api/admin/getPost", {
           withCredentials: true,
         });
 
@@ -75,7 +75,7 @@ export default function UpdatePost() {
 
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/admin/updatePost/${postId}/${user.id}`,
+        `https://bloging-website-backend-xi.vercel.app/api/admin/updatePost/${postId}/${user.id}`,
         formData,
         { withCredentials: true }
       );

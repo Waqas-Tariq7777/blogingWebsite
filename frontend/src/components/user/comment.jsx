@@ -43,7 +43,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const handleSave = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/comment/editComment/${comment._id}`,
+        `https://bloging-website-backend-xi.vercel.app/api/comment/editComment/${comment._id}`,
         { content: editedContent },
         { withCredentials: true }
       );

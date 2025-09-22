@@ -26,7 +26,7 @@ export default function AdminProfile() {
     const fetchUser = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/user/getUser/${id}`,
+          `https://bloging-website-backend-xi.vercel.app/api/user/getUser/${id}`,
           { withCredentials: true }
         );
         const u = res.data.data;
@@ -65,7 +65,7 @@ export default function AdminProfile() {
 
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/user/updateUser/${id}`,
+        `https://bloging-website-backend-xi.vercel.app/api/user/updateUser/${id}`,
         formData,
         {
           withCredentials: true,
@@ -102,7 +102,7 @@ export default function AdminProfile() {
 
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/user/deleteUser/${id}`,
+        `https://bloging-website-backend-xi.vercel.app/api/user/deleteUser/${id}`,
         { withCredentials: true }
       );
       console.log(response.data);
@@ -121,7 +121,7 @@ export default function AdminProfile() {
   const handleSubmit = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/api/user/logout",
+        "https://bloging-website-backend-xi.vercel.app/api/user/logout",
         {},
         {
           withCredentials: true,

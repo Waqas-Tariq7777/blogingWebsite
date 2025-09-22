@@ -32,7 +32,7 @@ export default function Search() {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/admin/getPost?${urlParams.toString()}&limit=20`
+          `https://bloging-website-backend-xi.vercel.app/api/admin/getPost?${urlParams.toString()}&limit=20`
         );
         const data = res.data.data || [];
         setPosts(data);
@@ -56,7 +56,7 @@ export default function Search() {
         urlParams.set("startIndex", startIndex);
         urlParams.set("limit", 20);
         const res = await axios.get(
-          `http://localhost:3000/api/admin/getPost?${urlParams.toString()}`
+          `https://bloging-website-backend-xi.vercel.app/api/admin/getPost?${urlParams.toString()}`
         );
         const newPosts = res.data.data || [];
         setPosts((prev) => [...prev, ...newPosts]);

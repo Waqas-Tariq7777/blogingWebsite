@@ -19,7 +19,7 @@ export default function Home() {
       setLoading(true);
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/admin/getPost?limit=9",
+          "https://bloging-website-backend-xi.vercel.app/api/admin/getPost?limit=9",
           { withCredentials: true }
         );
         if (res.status === 200 && Array.isArray(res.data.data)) {

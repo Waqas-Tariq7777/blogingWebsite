@@ -17,7 +17,7 @@ export default function CommentsSection({ postId }) {
   useEffect(() => {
     const loadComments = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/comment/getPostComments/${postId}`);
+        const res = await axios.get(`https://bloging-website-backend-xi.vercel.app/api/comment/getPostComments/${postId}`);
         if (res.status === 200) setComments(res.data);
       } catch (err) {
         console.error("Error loading comments:", err);
@@ -47,7 +47,7 @@ export default function CommentsSection({ postId }) {
     setSubmitting(true);
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/comment/create",
+        "https://bloging-website-backend-xi.vercel.app/api/comment/create",
         { content: commentText, postId, userId: user.id },
         { withCredentials: true }
       );
@@ -91,7 +91,7 @@ export default function CommentsSection({ postId }) {
       })
     );
     try {
-      await axios.put(`http://localhost:3000/api/comment/likeComment/${commentId}`, {}, { withCredentials: true });
+      await axios.put(`https://bloging-website-backend-xi.vercel.app/api/comment/likeComment/${commentId}`, {}, { withCredentials: true });
     } catch (err) {
       console.error("Error liking comment:", err);
     }
@@ -107,7 +107,7 @@ export default function CommentsSection({ postId }) {
         navigate("/signin");
         return;
       }
-      const res = await axios.delete(`http://localhost:3000/api/comment/deleteComment/${commentId}`, { withCredentials: true });
+      const res = await axios.delete(`https://bloging-website-backend-xi.vercel.app/api/comment/deleteComment/${commentId}`, { withCredentials: true });
       if (res.status === 200) {
         setComments(prev => prev.filter(c => c._id !== commentId));
       }
