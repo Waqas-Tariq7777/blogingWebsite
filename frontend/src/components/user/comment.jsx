@@ -16,7 +16,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
     } else {
       const fetchUser = async () => {
         try {
-          const res = await fetch(`/api/user/${comment.userId}`);
+          const res = await fetch(`https://bloging-website-backend-xi.vercel.app/api/user/${comment.userId}`);
           if (res.ok) setUser(await res.json());
         } catch (err) {
           console.error("Error fetching user:", err);
