@@ -101,6 +101,7 @@ const deleteComment = async (req, res, next) => {
     console.error("Delete Comment Error:", error);
     next(error);
   }
+  console.log("hii")
 };
 
 const getComments = async (req, res, next) => {
