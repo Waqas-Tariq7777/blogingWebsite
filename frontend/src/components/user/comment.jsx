@@ -4,7 +4,7 @@ import "../../style/components/comment.css";
 import useCurrentUser from "../../hooks/currentUser.jsx";
 import axios from "axios";
 
-export default function Comment({ comment, onLike, onEdit, onDelete }) {
+export default function Comment({ comment, onLike, onEdit }) {
   const [user, setUser] = useState(null);
   const { user: currentUser } = useCurrentUser();
   const [isEditing, setIsEditing] = useState(false);
@@ -104,7 +104,6 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                 {currentUser && (currentUser.id === comment.userId || currentUser.isAdmin) && (
                   <>
                     <button className="comment-edit" onClick={handleEdit}>Edit</button>
-                    <button className="comment-edit" onClick={() => onDelete(comment._id)}>Delete</button>
                   </>
                 )}
               </span>
