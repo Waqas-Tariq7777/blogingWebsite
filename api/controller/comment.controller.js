@@ -75,23 +75,32 @@ const editComment = async (req, res, next) => {
 };
 
 const deleteComment = async (req, res, next) => {
-    try {
-        const comment = await Comment.findById(req.params.commentId);
-        if (!comment) {
-            throw new ApiError(404, "comments not found")
-        }
+  try {
+    const { commentId } = req.params;
 
-        if (comment.userId !== req.user.id && !req.user.isAdmin) {
-            return next(
-                errorHandler(404, "You are not allowed to delete this comment")
-            );
-        }
-
-        await Comment.findByIdAndDelete(req.params.commentId);
-        res.status(200).json("Comment has been deleted");
-    } catch (error) {
-        next(error);
+    // 1. Validate ID
+    if (!mongoose.Types.ObjectId.isValid(commentId)) {
+      return next(new ApiError(400, "Invalid comment ID"));
     }
+
+    // 2. Find comment
+    const comment = await Comment.findById(commentId);
+    if (!comment) {
+      return next(new ApiError(404, "Comment not found"));
+    }
+
+    // 3. Check permissions
+    if (comment.userId.toString() !== req.user.id.toString() && !req.user.isAdmin) {
+      return next(new ApiError(403, "You are not allowed to delete this comment"));
+    }
+
+    // 4. Delete
+    await Comment.findByIdAndDelete(commentId);
+    res.status(200).json({ success: true, message: "Comment has been deleted" });
+  } catch (error) {
+    console.error("Delete Comment Error:", error);
+    next(error);
+  }
 };
 
 const getComments = async (req, res, next) => {
