@@ -15,19 +15,9 @@ const createPost = asyncHandler(async (req, res) => {
     const imageLocalPath = req.files?.image?.[0]?.path;
     if (!imageLocalPath) throw new ApiError(400, "Image file is required");
 
-  const imageFile = req.files?.image?.[0];
-if (!imageFile) throw new ApiError(400, "Image file is required");
-
-const uploaded = await new Promise((resolve, reject) => {
-  const stream = cloudinary.uploader.upload_stream((error, result) => {
-    if (error) reject(error);
-    else resolve(result);
-  });
-  stream.end(imageFile.buffer); // ✅ push buffer directly
-});
-
-if (!uploaded?.secure_url) throw new ApiError(500, "Image upload failed");
-
+    const uploaded = await uploadOnCloudinary(imageLocalPath);
+    if (!uploaded?.secure_url) throw new ApiError(500, "Image upload failed");
+    console.log("multer files", req.files)
     const post = await Post.create({
         title,
         category,
